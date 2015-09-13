@@ -27,7 +27,9 @@ describe ReportMaker do
       expect(rm2.total_passenger_count).to eq(6)
     end
 
-    xit 'knows and calculates the number of general passengers' do
+    it 'knows and calculates the number of general passengers' do
+      expect(rm1.general_passenger_count).to eq(4)
+      expect(rm2.general_passenger_count).to eq(5)
     end
 
     xit 'knows and calculates the number of airline passengers' do
