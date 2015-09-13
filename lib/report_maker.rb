@@ -7,7 +7,8 @@ class ReportMaker
               :total_number_of_bags,
               :total_loyalty_points_redeemed,
               :cost_of_flight,
-              :total_unadjusted_ticket_revenue
+              :total_unadjusted_ticket_revenue,
+              :total_adjusted_revenue
 
   def initialize(from_file, to_file)
     @input_file = from_file
@@ -64,5 +65,6 @@ class ReportMaker
 
   def revenues_calculator
     @total_unadjusted_ticket_revenue = @total_passenger_count * @ticket_price
+    @total_adjusted_revenue = @total_unadjusted_ticket_revenue - @airline_passenger_count * @ticket_price - @total_loyalty_points_redeemed
   end
 end

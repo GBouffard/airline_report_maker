@@ -2,4 +2,4 @@ Documentation:
   Enabled: false
 
 Metrics/LineLength:
-  Max: 125
+  Max: 140
