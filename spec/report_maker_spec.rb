@@ -57,7 +57,9 @@ describe ReportMaker do
       expect(rm2.cost_of_flight).to eq(600)
     end
 
-    xit 'knows and calculates the total unadjusted tickets revenue' do
+    it 'knows and calculates the total unadjusted tickets revenue' do
+      expect(rm1.total_unadjusted_ticket_revenue).to eq(1200)
+      expect(rm2.total_unadjusted_ticket_revenue).to eq(900)
     end
 
     xit 'knows and calculates the total adjusted revenue' do

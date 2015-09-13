@@ -6,7 +6,8 @@ class ReportMaker
               :loyalty_passenger_count,
               :total_number_of_bags,
               :total_loyalty_points_redeemed,
-              :cost_of_flight
+              :cost_of_flight,
+              :total_unadjusted_ticket_revenue
 
   def initialize(from_file, to_file)
     @input_file = from_file
@@ -24,6 +25,7 @@ class ReportMaker
     bags_counter
     loyalty_points_counter
     cost_calculator
+    revenues_calculator
   end
 
   def passengers_counters
@@ -58,5 +60,9 @@ class ReportMaker
   def cost_calculator
     cost_per_passenger = open(@input_file, &:readline).split[4].to_i
     @cost_of_flight = @total_passenger_count * cost_per_passenger
+  end
+
+  def revenues_calculator
+    @total_unadjusted_ticket_revenue = @total_passenger_count * @ticket_price
   end
 end
