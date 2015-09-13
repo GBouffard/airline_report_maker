@@ -47,7 +47,9 @@ describe ReportMaker do
       expect(rm2.total_number_of_bags).to eq(6)
     end
 
-    xit 'knows and calculates the total of loyalty points redeemded' do
+    it 'knows and calculates the total of loyalty points redeemded' do
+      expect(rm1.total_loyalty_points_redeemed).to eq(40)
+      expect(rm2.total_loyalty_points_redeemed).to eq(0)
     end
 
     xit 'knows and calculates the total cost of a flight' do
