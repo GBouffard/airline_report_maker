@@ -52,7 +52,9 @@ describe ReportMaker do
       expect(rm2.total_loyalty_points_redeemed).to eq(0)
     end
 
-    xit 'knows and calculates the total cost of a flight' do
+    it 'knows and calculates the total cost of a flight' do
+      expect(rm1.cost_of_flight).to eq(800)
+      expect(rm2.cost_of_flight).to eq(600)
     end
 
     xit 'knows and calculates the total unadjusted tickets revenue' do
