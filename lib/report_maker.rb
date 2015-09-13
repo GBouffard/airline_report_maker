@@ -3,7 +3,8 @@ class ReportMaker
   attr_reader :total_passenger_count,
               :general_passenger_count,
               :airline_passenger_count,
-              :loyalty_passenger_count
+              :loyalty_passenger_count,
+              :total_number_of_bags
 
   def initialize(from_file, to_file)
     @flight_data = open(from_file).read
@@ -17,6 +18,7 @@ class ReportMaker
 
   def calculate
     passengers_counters
+    bags_counter
   end
 
   def passengers_counters
@@ -27,5 +29,10 @@ class ReportMaker
     @flight_data.each_line { |line| @airline_passenger_count += 1 if line.include?('airline') }
     @loyalty_passenger_count = 0
     @flight_data.each_line { |line| @loyalty_passenger_count += 1 if line.include?('loyalty') }
+  end
+
+  def bags_counter
+    @total_number_of_bags = @total_passenger_count
+    @flight_data.each_line { |line| @total_number_of_bags += 1 if line.include?('loyalty') && line.split.last == 'TRUE' }
   end
 end
