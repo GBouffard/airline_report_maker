@@ -1,7 +1,8 @@
 require 'report_maker'
 
 describe ReportMaker do
-  xit 'requires 2 files to be given to work' do
+  it 'requires 2 files to be given to work' do
+    expect { ReportMaker.new } .to raise_error
   end
 
   xit 'can only process a valid input file, meaning with 1 route and 1 aircraft' do

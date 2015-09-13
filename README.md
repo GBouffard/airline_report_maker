@@ -8,21 +8,26 @@ Technologies used
 - Rspec
 - Git
 
-How to run it
+How to set it up
 ----
 ```
 git clone git@github.com:GBouffard/airline_reports_program.git
 cd airline_reports_program
 bundle install
-irb
-Dir["./lib/*"].each {|file| require file }
-ruby report_maker.rb example1 output1
+```
+
+How to run the report maker
+----
+```
+ruby lib/report_maker.rb flight1.txt report1.txt
+open report1.txt
+ruby lib/report_maker.rb flight2.txt report2.txt
+open report2.txt
 ```
 
 How to run tests
 ----
 ```
-cd airline_reports_program
 rspec
 ```
 and this is what you should see
