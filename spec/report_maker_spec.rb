@@ -15,33 +15,43 @@ describe ReportMaker do
     end
   end
 
-  xit 'knows and calculates the total number of passengers' do
-  end
+  describe 'with a correct flight file as input' do
+    let(:flight1) { 'flight1.txt' }
+    let(:flight2) { 'flight2.txt' }
+    let(:rm1) { ReportMaker.new(flight1, 'report1.txt') }
+    let(:rm2) { ReportMaker.new(flight2, 'report2.txt') }
 
-  xit 'knows and calculates the number of general passengers' do
-  end
+    # we will test with both example files to make sure it all works.
+    it 'knows and calculates the total number of passengers' do
+      expect(rm1.total_passenger_count).to eq(8)
+      expect(rm2.total_passenger_count).to eq(6)
+    end
 
-  xit 'knows and calculates the number of airline passengers' do
-  end
+    xit 'knows and calculates the number of general passengers' do
+    end
 
-  xit 'knows and calculates the number of loyalty passengers' do
-  end
+    xit 'knows and calculates the number of airline passengers' do
+    end
 
-  xit 'knows and calculates the total of loyalty points redeemded' do
-  end
+    xit 'knows and calculates the number of loyalty passengers' do
+    end
 
-  xit 'knows and calculates the total cost of a flight' do
-  end
+    xit 'knows and calculates the total of loyalty points redeemded' do
+    end
 
-  xit 'knows and calculates the total unadjusted tickets revenue' do
-  end
+    xit 'knows and calculates the total cost of a flight' do
+    end
 
-  xit 'knows and calculates the total adjusted revenue' do
-  end
+    xit 'knows and calculates the total unadjusted tickets revenue' do
+    end
 
-  xit 'knows and informs if a flight can proceed' do
-  end
+    xit 'knows and calculates the total adjusted revenue' do
+    end
 
-  xit 'writes what is expected as the report in the output file' do
+    xit 'knows and informs if a flight can proceed' do
+    end
+
+    xit 'writes what is expected as the report in the output file' do
+    end
   end
 end
