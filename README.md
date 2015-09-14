@@ -11,18 +11,9 @@ Technologies used
 How to set it up
 ----
 ```
-git clone git@github.com:GBouffard/airline_reports_program.git
-cd airline_reports_program
+git clone git@github.com:GBouffard/airline_reports_maker.git
+cd airline_reports_maker
 bundle install
-```
-
-How to run the report maker
-----
-```
-ruby lib/report_maker.rb flight1.txt report1.txt
-open report1.txt
-ruby lib/report_maker.rb flight2.txt report2.txt
-open report2.txt
 ```
 
 How to run tests
@@ -32,3 +23,21 @@ rspec
 ```
 and this is what you should see
 ![](public/image_to_come.png)
+
+PS: as part of the test, running rspec creates 2 reports from the 2 files examples. They can be seen with
+```
+open 'report1.txt'
+open 'report2.txt'
+```
+
+How to run the report maker in the console (irb)
+----
+```
+irb
+require './lib/report_maker.rb'
+ReportMaker.new('flight1.txt', 'report1b.txt')
+ReportMaker.new('flight2.txt', 'report2b.txt')
+exit
+open 'report1b.txt'
+open 'report2b.txt'
+```

@@ -74,7 +74,9 @@ describe ReportMaker do
       expect(rm2.can_flight_proceed).to eq('FALSE')
     end
 
-    xit 'writes what is expected as the report in the output file' do
+    it 'writes what is expected as the report in the output file' do
+      expect(rm1.report_file).to eq('8 4 1 3 9 40 800 1200 1010 TRUE')
+      expect(rm2.report_file).to eq('6 5 1 0 6 0 600 900 750 FALSE')
     end
   end
 end

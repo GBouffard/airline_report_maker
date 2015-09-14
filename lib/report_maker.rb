@@ -1,5 +1,6 @@
+from_file, to_file = ARGV
+
 class ReportMaker
-  from_file, to_file = ARGV
   attr_reader :total_passenger_count,
               :general_passenger_count,
               :airline_passenger_count,
@@ -9,13 +10,20 @@ class ReportMaker
               :cost_of_flight,
               :total_unadjusted_ticket_revenue,
               :total_adjusted_revenue,
-              :can_flight_proceed
+              :can_flight_proceed,
+              :report_file
 
   def initialize(from_file, to_file)
     @input_file = from_file
     @flight_data = open(from_file).read
     file_validation
     calculate
+    @output_file = open(to_file, 'w')
+    write_report
+    to_file = @output_file
+    to_file.close
+    # this last instance variable (@report_file) is for test purposes only.
+    @report_file = open(to_file).read
   end
 
   def file_validation
@@ -81,5 +89,11 @@ class ReportMaker
     condition2 = (@total_passenger_count <= @number_of_seats)
     condition3 = ((@total_passenger_count.to_f / @number_of_seats.to_f) * 100) >= @minimum_takeof_load_percentage
     @can_flight_proceed = (condition1 && condition2 && condition3 ? 'TRUE' : 'FALSE')
+  end
+
+  def write_report
+    @output_file.write("#{@total_passenger_count} #{@general_passenger_count} #{@airline_passenger_count} ")
+    @output_file.write("#{@loyalty_passenger_count} #{@total_number_of_bags} #{@total_loyalty_points_redeemed} ")
+    @output_file.write("#{@cost_of_flight} #{@total_unadjusted_ticket_revenue} #{@total_adjusted_revenue} #{@can_flight_proceed}")
   end
 end
