@@ -8,7 +8,8 @@ class ReportMaker
               :total_loyalty_points_redeemed,
               :cost_of_flight,
               :total_unadjusted_ticket_revenue,
-              :total_adjusted_revenue
+              :total_adjusted_revenue,
+              :can_flight_proceed
 
   def initialize(from_file, to_file)
     @input_file = from_file
@@ -27,6 +28,7 @@ class ReportMaker
     loyalty_points_counter
     cost_calculator
     revenues_calculator
+    flight_authorisation
   end
 
   def passengers_counters
@@ -66,5 +68,18 @@ class ReportMaker
   def revenues_calculator
     @total_unadjusted_ticket_revenue = @total_passenger_count * @ticket_price
     @total_adjusted_revenue = @total_unadjusted_ticket_revenue - @airline_passenger_count * @ticket_price - @total_loyalty_points_redeemed
+  end
+
+  def flight_authorisation
+    @minimum_takeof_load_percentage = open(@input_file, &:readline).split.last.to_i
+    @number_of_seats = IO.readlines(@input_file)[1].split.last.to_i
+    conditions_for_authorisation
+  end
+
+  def conditions_for_authorisation
+    condition1 = (@total_adjusted_revenue > @cost_of_flight)
+    condition2 = (@total_passenger_count <= @number_of_seats)
+    condition3 = ((@total_passenger_count.to_f / @number_of_seats.to_f) * 100) >= @minimum_takeof_load_percentage
+    @can_flight_proceed = (condition1 && condition2 && condition3 ? 'TRUE' : 'FALSE')
   end
 end

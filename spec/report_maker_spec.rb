@@ -22,6 +22,8 @@ describe ReportMaker do
     let(:rm2) { ReportMaker.new(flight2, 'report2.txt') }
 
     # we will test with both example files to make sure it all works.
+    # for simplicity and as the 2 examples suggest, we will assume that
+    # the first line always refer to the route and second to the aircraft
     it 'knows and calculates the total number of passengers' do
       expect(rm1.total_passenger_count).to eq(8)
       expect(rm2.total_passenger_count).to eq(6)
@@ -67,7 +69,9 @@ describe ReportMaker do
       expect(rm2.total_adjusted_revenue).to eq(750)
     end
 
-    xit 'knows and informs if a flight can proceed' do
+    it 'knows and informs if a flight can proceed' do
+      expect(rm1.can_flight_proceed).to eq('TRUE')
+      expect(rm2.can_flight_proceed).to eq('FALSE')
     end
 
     xit 'writes what is expected as the report in the output file' do
