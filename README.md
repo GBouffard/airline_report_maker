@@ -11,8 +11,8 @@ Technologies used
 How to set it up
 ----
 ```
-git clone git@github.com:GBouffard/airline_reports_maker.git
-cd airline_reports_maker
+git clone git@github.com:GBouffard/airline_report_maker.git
+cd airline_report_maker
 bundle install
 ```
 
@@ -22,7 +22,7 @@ How to run tests
 rspec
 ```
 and this is what you should see
-![](public/image_to_come.png)
+![](public/rspec_screenshot.png)
 
 PS: as part of the test, running rspec creates 2 reports from the 2 files examples. They can be seen with
 ```
@@ -41,3 +41,7 @@ exit
 open 'report1b.txt'
 open 'report2b.txt'
 ```
+
+What I learnt from this exercise
+----
+This is the first time I'm doing a project dealing with external files. I had to find new build-in methods to make the program works, which is great for my learning curve.
