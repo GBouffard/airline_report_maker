@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/GBouffard/airline_report_maker.svg?branch=master)](https://travis-ci.org/GBouffard/airline_report_maker)
+[![Build Status](https://travis-ci.org/GBouffard/airline_report_maker.svg?branch=master)](https://travis-ci.org/GBouffard/airline_report_maker) [![Code Climate](https://codeclimate.com/github/GBouffard/airline_report_maker/badges/gpa.svg)](https://codeclimate.com/github/GBouffard/airline_report_maker)
 
 :airplane: airline_reports_program :airplane:
 ===========
