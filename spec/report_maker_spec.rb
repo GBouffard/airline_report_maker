@@ -1,3 +1,4 @@
+require 'spec_helper'
 require 'report_maker'
 
 describe ReportMaker do

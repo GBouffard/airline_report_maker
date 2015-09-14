@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/GBouffard/airline_report_maker.svg?branch=master)](https://travis-ci.org/GBouffard/airline_report_maker)
+
 :airplane: airline_reports_program :airplane:
 ===========
 A small airline wants a simple program to be written that produces flight summary reports based on flight, route and passenger data. 
@@ -44,4 +46,4 @@ open 'report2b.txt'
 
 What I learnt from this exercise
 ----
-This is the first time I'm doing a project dealing with external files. I had to find new build-in methods to make the program works, which is great for my learning curve.
+This is the first time I'm doing a project dealing with external files. I had to find new build-in methods for the program to work, which is great for my learning curve.
